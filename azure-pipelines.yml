@@ -1,0 +1,26 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: sudo apt-get update
+  displayName: 'Update System'
+
+- script: sudo apt-get install -y php
+  displayName: 'Install PHP'
+
+- script: php -v
+  displayName: 'Check PHP Version'
+
+- script: |
+    echo "Running Tests"
+    # Your test command here
+  displayName: 'Run tests'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+    publishLocation: 'Container'

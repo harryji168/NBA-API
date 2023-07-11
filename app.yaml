@@ -1,0 +1,23 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: .
+  php_version: 8.1
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+
+env_variables:
+  API_ENDPOINT_SEASONS: "https://api-nba-v1.p.rapidapi.com/seasons"
+  API_ENDPOINT_GAMES: "https://api-nba-v1.p.rapidapi.com/games?season="
+  API_HOST: "api-nba-v1.p.rapidapi.com"
+  API_KEY: "eyour_api_key_here"
+  USE_CACHE: "true"
+  DB_HOST: "localhost"
+  DB_NAME: "test"
+  DB_USERNAME: "root"
+  DB_PASSWORD: ""
+  RUN_MIGRATIONS: "true"
